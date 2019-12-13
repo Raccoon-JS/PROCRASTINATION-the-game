@@ -1,4 +1,7 @@
 # PROCRASTINATION: a Godot Wild Jam #16 game
+<p align="center">
+<img height="200" width="450" src="../master/GodotWildJam-wallpaper.png">
+</p>
 
 ## Theme
 <p align="center">
