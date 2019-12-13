@@ -1,9 +1,13 @@
 # PROCRASTINATION: a Godot Wild Jam #16 game
 
-Theme: Short On Time
-
+## Theme
 <p align="center">
 <img src="../master/theme.png">
+</p>
+
+## Wildcards
+<p align="center">
+<img src="../master/wildcards.png">
 </p>
 
 You have less than 72 hours to make a short game.
