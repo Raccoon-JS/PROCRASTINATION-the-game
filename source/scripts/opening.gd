@@ -8,5 +8,6 @@ func _ready():
 
 func _on_ani_player_finished(anim_name):
 	if anim_name == "intro":
-		get_tree().change_scene(next_scene)
+		if get_tree().change_scene(next_scene) != 0:
+			get_tree().quit()
 	pass # Replace with function body.

@@ -1,45 +1,86 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Happy-Marker.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://images/face-smile.png" type="Texture" id=3]
+[ext_resource path="res://images/hourglass_trasparent.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 36
 font_data = ExtResource( 2 )
 
 [node name="menu" type="Node"]
 script = ExtResource( 1 )
+start_game = "res://scenes/game.tscn"
+about = "res://scenes/about.tscn"
 
 [node name="background" type="ColorRect" parent="."]
 margin_right = 800.0
 margin_bottom = 800.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="text" type="Label" parent="."]
+[node name="words" type="Control" parent="."]
+margin_right = 800.0
+margin_bottom = 800.0
+
+[node name="upper_part" type="Label" parent="words"]
 margin_left = 20.0
-margin_right = 780.0
+margin_right = 590.0
 margin_bottom = 320.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "GODOT WILD JAM #16:
 PROCRASTINATION"
 valign = 1
 autowrap = true
 
-[node name="buttons" type="VBoxContainer" parent="."]
+[node name="command" type="Label" parent="words"]
+margin_left = 20.0
+margin_top = 350.0
+margin_right = 680.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 3 )
+text = "Click the left mouse button to progress."
+valign = 1
+autowrap = true
+
+[node name="expression" type="TextureRect" parent="."]
+margin_left = 460.0
 margin_top = 400.0
+margin_right = 780.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="hourglass" type="TextureRect" parent="."]
+margin_left = 660.0
+margin_top = 50.0
+margin_right = 790.0
+margin_bottom = 280.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="buttons" type="VBoxContainer" parent="."]
+margin_top = 320.0
 margin_right = 400.0
-margin_bottom = 800.0
+margin_bottom = 720.0
 alignment = 1
 
 [node name="start" type="Button" parent="buttons"]
 margin_top = 112.0
 margin_right = 400.0
 margin_bottom = 168.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.694118, 0.694118, 0.694118, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "MAKE GAME. NOW!"
 flat = true
 
@@ -47,7 +88,10 @@ flat = true
 margin_top = 172.0
 margin_right = 400.0
 margin_bottom = 228.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.694118, 0.694118, 0.694118, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "WITH WHAT?"
 flat = true
 
@@ -55,6 +99,12 @@ flat = true
 margin_top = 232.0
 margin_right = 400.0
 margin_bottom = 288.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.694118, 0.694118, 0.694118, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "GIVE UP!"
 flat = true
+[connection signal="pressed" from="buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="buttons/about" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]

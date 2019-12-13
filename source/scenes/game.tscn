@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="game" type="Node"]
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 800.0
+margin_bottom = 800.0
